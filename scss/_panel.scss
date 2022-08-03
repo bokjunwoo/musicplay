@@ -1,0 +1,162 @@
+section {
+    width: 20vw;
+    height: 65vh;
+    position: absolute;
+    left: 50%;
+    top: 150%;
+    margin-left: -10vw;
+    margin-top: -32.5vh;
+    transition: 1s;
+
+    article {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        &.on {
+            .inner {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .inner {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            padding: 5vh 2.5vw 8vh;
+            border-radius: 10px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0.6;
+            transform: scale(0.8);
+            transition: 1s;
+
+            //inner
+            .pic {
+                width: 15vw;
+                height: 15vw;
+                position: relative;
+                background-repeat: no-repeat;
+                background-position: -9999px -9999px;
+
+                &::before, &::after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-radius: 50%;
+                    background-image: inherit; //부모에게 받아옴
+                    background-position: center;
+                    background-size: cover;
+                    overflow: hidden;
+                }
+                
+                //pic
+                &::before {
+                    filter: blur(20px) brightness(130%);
+                    transform: translate(0, 10%);
+                }
+
+                //pic
+                .dot {
+                    width: 4vw;
+                    height: 4vw;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #fff;
+                    border-radius: 50%;
+                    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2);
+                    z-index: 3;
+                }
+
+                //pic
+                &.on {
+                    &::before {
+                        animation: rotation_shadow 8s linear infinite;
+                    }
+                    
+                    &::after {
+                        animation: rotation 8s linear infinite;
+                    }
+                }
+            }
+
+            //inner
+            .text {
+                width: 15vw;
+                text-align: center;
+                position: absolute;
+                margin-top: 60px;
+                letter-spacing: 1px;
+
+                //text
+                h2 {
+                    margin-bottom: 20px;
+                    font-size: 26px;
+                }
+
+                //text
+                p {
+                    color: #777;
+                }
+
+                //text
+                .control {
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 60px;
+
+                    li {
+                        cursor: pointer;
+                        opacity: 0.6;
+                        transition: 0.5s;
+
+                        &.play {
+                            transform: scale(1.5);
+                            opacity: 0.8;
+                        }
+
+                        &:hover {
+                            transform: scale(1.5);
+                            opacity: 0.8;
+
+                            &.play {
+                                transform: scale(1.8);
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* KEYFRAMES */
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotation_shadow {
+    0% {
+        transform: translate(0, 10%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(0, 10%) rotate(360deg);
+    }
+}

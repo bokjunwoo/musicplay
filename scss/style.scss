@@ -1,0 +1,77 @@
+/* FONT 
+font-family: 'Saira', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
+
+/* RESET */
+@import "reset";
+
+/* COMMON */
+body {
+    font: 16px/1 "Saira";
+}
+
+/* UI */
+figure {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    //background: linear-gradient(25deg, #ff4f1e, #f97753);
+    overflow: hidden;
+    
+    /* 그라데이션 */
+    background: url('http://unsplash.it/1200x800') center center no-repeat;
+    background-size: cover;
+        
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+        opacity: .6; 
+    }
+      
+
+    h1 {
+        position: absolute;
+        top: 7vh;
+        left: 4vw;
+
+        strong {
+            font-size: 40px;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        span {
+            font-size: 20px;
+            color: beige;
+            letter-spacing: 1px;
+        }
+    }
+
+    .menu {
+        position: absolute;
+        top: 8vh;
+        right: 4vw;
+        font-size: 20px;
+
+        i {
+            color: #fff;
+        }
+    }
+
+    @import "panel";
+    @import "btns";
+
+    > p {
+        position: absolute;
+        bottom: 7vh;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 16px;
+        color: #333;
+    }
+}
